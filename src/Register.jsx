@@ -59,7 +59,7 @@ function Register() {
     }, [auth])
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-900 to-blue-500 overflow-y-auto">
+    <div className="flex justify-center items-center min-h-screen overflow-y-auto bg-[url(https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1739903983~exp=1739907583~hmac=7c62f98f4fad32fa1696a265bf44e49bb3cc727a7072f9024bb9d3088c27f209&w=1380)]">
       <div className="bg-white pt-14 mt-12 mb-12 p-4 rounded-md shadow-lg w-full max-w-[28rem]">
         {/* Logo Section */}
         <div className="logo-section rounded-3xl flex justify-center mb-6">

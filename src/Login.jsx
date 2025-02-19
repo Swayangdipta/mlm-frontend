@@ -44,7 +44,7 @@ function Login() {
     }
   }, [])
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 pb-10 pt-12">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 bg-[url(https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1739903983~exp=1739907583~hmac=7c62f98f4fad32fa1696a265bf44e49bb3cc727a7072f9024bb9d3088c27f209&w=1380)] pb-10 pt-12">
       <div className="bg-white p-8 rounded-md shadow-md w-[28rem]">
         <div className="logo-section rounded-3xl flex justify-center">
         <h1 className='text-[24px]'>Company.in</h1>
