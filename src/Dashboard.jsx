@@ -5,10 +5,12 @@ import { BsWhatsapp } from "react-icons/bs";
 import { FaRegCopy } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { getAuthFromSessionStorage, removeAuthFromSessionStorage } from './utils/ls.util';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import WithdrawalPopup from './WithdrawalPopup';
 
 function Dashboard() {
   const [currentUser,setCuerrentUser] = useState(null)
+  const [isWithdrawOpen, setIsWithdrawOpen] = useState(false)
   const auth = getAuthFromSessionStorage()
   const navigate = useNavigate()
 
@@ -47,17 +49,19 @@ function Dashboard() {
             <button className="font-semibold">Capital</button>
             <button className="font-semibold">Bot</button>
             <button className="font-semibold">Market</button>
-            <button className="font-semibold">Profile</button>
+            <Link to='/profile'><button className="font-semibold relative top-0 group">
+              Profile
+            </button></Link>
           </div>
           <div className="dep-wid flex justify-between w-full mt-4 space-x-6">
             <button className="bg-blue-600 text-white px-6 py-2 rounded-lg w-full font-semibold">Deposit</button>
-            <button className="bg-yellow-500 text-white px-6 py-2 rounded-lg w-full font-semibold">Withdrawal</button>
+            <button className="bg-yellow-500 text-white px-6 py-2 rounded-lg w-full font-semibold" onClick={e => setIsWithdrawOpen(true)}>Withdrawal</button>
           </div>
         </nav>
       </div>
 
       {/* Main Content */}
-      <main className="pt-36 bg-pink-400">
+      <main className="pt-36 bg-[url(https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1739903983~exp=1739907583~hmac=7c62f98f4fad32fa1696a265bf44e49bb3cc727a7072f9024bb9d3088c27f209&w=1380)]">
         {/* Referral Link */}
         <div className="p-4 rounded-lg">
           <p className="text-start font-medium text-white mt-4">Washington DC, USA (GMT-5)</p>
@@ -108,17 +112,17 @@ function Dashboard() {
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Fund Wallet</h3>
-                <p className="text-2xl font-bold text-gray-800">$0.00</p>
+                <p className="text-2xl font-bold text-gray-800">${auth.user.wallet_balance}</p>
               </div>
 
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Bonus Wallet</h3>
-                <p className="text-2xl font-bold text-gray-800">$5.51</p>
+                <p className="text-2xl font-bold text-gray-800">Coming Soon</p>
               </div>
 
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Trading Profit Wallet</h3>
-                <p className="text-2xl font-bold text-gray-800">$0.51</p>
+                <p className="text-2xl font-bold text-gray-800">Coming Soon</p>
               </div>
             </section>
             {/* 2nd row of wallet */}
@@ -140,7 +144,7 @@ function Dashboard() {
               </div>
             </section>
             {/* 3rd row of wallet */}
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {/* <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">My Activation Amount</h3>
                 <p className="text-2xl font-bold text-gray-800">$10</p>
@@ -155,9 +159,9 @@ function Dashboard() {
                 <h3 className="text-lg font-semibold text-gray-600">My Total Referrals</h3>
                 <p className="text-2xl font-bold text-gray-800">1</p>
               </div>
-            </section>
+            </section> */}
             {/* 4th row of wallet */}
-            <h1 className='text-xl text-yellow-400 font-semibold'>Bonus Details</h1>
+            {/* <h1 className='text-xl text-yellow-400 font-semibold'>Bonus Details</h1>
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Referral Benefit</h3>
@@ -175,7 +179,7 @@ function Dashboard() {
               </div>
             </section>
             {/* 5th row of wallet */}
-            <h1 className='text-xl text-yellow-400 font-semibold'>Summary of Trading</h1>
+            {/* <h1 className='text-xl text-yellow-400 font-semibold'>Summary of Trading</h1>
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Daily Assured Profit</h3>
@@ -193,7 +197,7 @@ function Dashboard() {
               </div>
             </section>
             {/* 6th row of wallet */}
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {/* <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <div className="bg-white shadow-md p-5 rounded-lg text-center">
                 <h3 className="text-lg font-semibold text-gray-600">Total Withdrawl</h3>
                 <p className="text-2xl font-bold text-gray-800">$0</p>
@@ -208,14 +212,16 @@ function Dashboard() {
                 <h3 className="text-lg font-semibold text-gray-600">Assured Profits</h3>
                 <p className="text-2xl font-bold text-gray-800">$0.00</p>
               </div>
-            </section>
+            </section> */}
 
           </div>
         </div>
 
-
+            
       </main>
-
+      {
+        isWithdrawOpen && (<WithdrawalPopup setIsWithdrawOpen={setIsWithdrawOpen} />)
+      }
     </div>
   )
 }

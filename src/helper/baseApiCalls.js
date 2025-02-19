@@ -4,7 +4,7 @@ const backend = import.meta.env.VITE_BACKEND_URL
 
 export const login = async (data) => {
     try {
-        return axios.post(`${backend}/login`,data,{
+        return axios.post(`${backend}/auth/login`,data,{
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
@@ -23,6 +23,27 @@ export const register = async (data) => {
                 "Content-Type": "application/json"
             }
         }).then(response => response)
+    } catch (error) {
+        return error
+    }
+}
+
+export const requestWithdrawl = async (data) => {
+    try {
+        return axios.post(`${backend}/api/withdrawal/request`,data,{
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => response)
+    } catch (error) {
+        return error
+    }
+}
+
+export const getUserDownline = async (data) => {
+    try {
+        return axios.get(`${backend}/users/downline/${data}`).then(response => response)
     } catch (error) {
         return error
     }
