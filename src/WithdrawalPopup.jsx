@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CgClose } from 'react-icons/cg'
-import { getAuthFromSessionStorage } from './utils/ls.util'
+import { getAuthFromSessionStorage, setAuthInSessionStorage } from './utils/ls.util'
 import { requestWithdrawl } from './helper/baseApiCalls'
 
 const WithdrawalPopup = ({setIsWithdrawOpen = f => f}) => {
@@ -20,19 +20,19 @@ const WithdrawalPopup = ({setIsWithdrawOpen = f => f}) => {
 
         const data = {
             amount: inputs.amount,
-            wallet: inputs.wallet || auth.user._id,
-            user: auth.user._id
+            wallet: inputs.wallet || auth.user.id,
+            user: auth.user.id
         }
 
         setIsLoading(true)
 
         try {
             const response = await requestWithdrawl(data)
-            console.log(response);
             
             if (response.status === 200) {
                 setIsWithdrawOpen(false)
                 setIsLoading(false)
+                setAuthInSessionStorage({...auth,user: {...auth.user, wallet_balance: auth.user.wallet_balance - inputs.amount}})
                 return alert('Withdrawal Request Sent')
             }
         } catch (error) {

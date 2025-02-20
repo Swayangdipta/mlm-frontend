@@ -4,10 +4,10 @@ import logo from './assets/logo.png';
 import { Link } from 'react-router-dom';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { TbLogin2 } from "react-icons/tb";
-import { login } from './helper/baseApiCalls';
+import { login, loginAdmin } from './helper/baseApiCalls';
 import { getAuthFromSessionStorage, setAuthInSessionStorage } from './utils/ls.util';
 
-function Login() {
+function Login({isAdmin = false}) {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
@@ -20,12 +20,20 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await login({username,password})
-      console.log(response);
-      
-      if (response.status === 200) {
-        setAuthInSessionStorage(response.data);
-        navigate("/Dashboard");
+      if(isAdmin){
+        const response = await loginAdmin({username,password})
+        
+        if (response.status === 200) {
+          setAuthInSessionStorage(response.data);
+          navigate("/admin");
+        }
+      }else{
+        const response = await login({username,password})
+        
+        if (response.status === 200) {
+          setAuthInSessionStorage(response.data);
+          navigate("/Dashboard");
+        }
       }
     } catch (error) {
       console.log(error);

@@ -15,6 +15,19 @@ export const login = async (data) => {
     }
 }
 
+export const loginAdmin = async (data) => {
+    try {
+        return axios.post(`${backend}/api/admin/login`,data,{
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => response)
+    } catch (error) {
+        return error
+    }
+}
+
 export const register = async (data) => {
     try {
         return axios.post(`${backend}/register`,data,{
@@ -47,4 +60,78 @@ export const getUserDownline = async (data) => {
     } catch (error) {
         return error
     }
+}
+
+export const getTotalBusiness = async () => {
+    try {
+        return axios.get(`${backend}/api/admin/dashboard/total-business`).then(response => response)
+    } catch (error) {
+        return error
+    }
+}
+
+export const getAllUsers = async () => {
+    try {
+      const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+        
+      if (!token) {
+        console.error("No admin token found");
+        return { status: 401, data: { message: "Unauthorized" } };
+      }
+  
+      const response = await axios.get(`${backend}/api/admin/dashboard/users`, {
+        headers: {
+          Authorization: `Bearer ${token.token}`, // Attach token in headers
+        },
+      });
+  
+      return response;
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      return { status: error.response?.status || 500, data: [] };
+    }
+  };
+ 
+export const deleteUser = async (userId) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          
+        if (!token) {
+          console.error("No admin token found");
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.delete(`${backend}/api/admin/dashboard/delete-user/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        return { status: error.response?.status || 500, data: [] };
+      }
+}
+
+export const topupWallet = async (userId,data) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          
+        if (!token) {
+          console.error("No admin token found");
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.put(`${backend}/api/admin/dashboard/update-wallet/${userId}`,data, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        return { status: error.response?.status || 500, data: [] };
+      }
 }
