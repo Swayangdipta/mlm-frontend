@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom'
-import { removeAuthFromSessionStorage } from './utils/ls.util'
+import { getAuthFromSessionStorage, removeAuthFromSessionStorage } from './utils/ls.util'
 import AdminUserTable from './AdminUserTable'
 
 const UserManage = () => {
         const navigate = useNavigate()
-    
+        const auth = getAuthFromSessionStorage()
+        
         const handleLogout = () => {
           // logout
           removeAuthFromSessionStorage()
       
           navigate('/admin/login')
         }
+
+        useEffect(()=>{
+            if(!auth){
+                navigate('/admin/login')
+            }
+    
+            if(auth.user){
+                navigate('/login')
+            }
+        },[])
   return (
         <div className='w-screen min-h-screen bg-gray-100'>
         <header className='w-full flex justify-between items-center h-16 bg-blue-500 text-white text-2xl p-4 fixed top-0 left-0'>

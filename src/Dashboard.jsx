@@ -46,15 +46,17 @@ function Dashboard() {
         <nav className="bg-blue-900 text-white flex flex-col items-center p-3 m-0 fixed top-14 w-full z-10">
           <div className="flex space-x-4 w-full justify-between">
             <button className="font-semibold">Home</button>
-            <button className="font-semibold">Capital</button>
+            <Link to='/capital' ><button className="font-semibold">Capital</button></Link>
             <button className="font-semibold">Bot</button>
-            <button className="font-semibold">Market</button>
+            <Link to="/invest" ><button className="font-semibold">Invest</button></Link>
             <Link to='/profile'><button className="font-semibold relative top-0 group">
               Profile
             </button></Link>
           </div>
-          <div className="dep-wid flex justify-between w-full mt-4 space-x-6">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg w-full font-semibold">Deposit</button>
+          <div className="dep-wid grid grid-cols-2 w-full mt-4 space-x-6">
+            <Link to='/deposit'>
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg w-full font-semibold">Deposit</button>
+            </Link>
             <button className="bg-yellow-500 text-white px-6 py-2 rounded-lg w-full font-semibold" onClick={e => setIsWithdrawOpen(true)}>Withdrawal</button>
           </div>
         </nav>

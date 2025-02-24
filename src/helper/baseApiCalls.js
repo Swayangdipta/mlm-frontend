@@ -135,3 +135,90 @@ export const topupWallet = async (userId,data) => {
         return { status: error.response?.status || 500, data: [] };
       }
 }
+
+export const createDeposit = async (data) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          console.log(token, data);
+          
+        if (!token.token) {
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.post(`${backend}/api/deposit/create`,data, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        return { status: error.response?.status || 500, data: [] };
+      }
+}
+
+export const createInvestment = async (data) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          console.log(token, data);
+          
+        if (!token.token) {
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.post(`${backend}/api/investment/create`,data, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        return error;
+      }
+}
+
+export const getTotalInvestment = async (data) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          console.log(token, data);
+          
+        if (!token.token) {
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.post(`${backend}/api/investment/my-investments`,data, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        return { status: error.response?.status || 500, data: [] };
+      }
+}
+
+export const getAllTransactions = async (data) => {
+    try {
+        const token = JSON.parse(sessionStorage.getItem("auth")); // Get token from local storage or state
+          console.log(token, data);
+          
+        if (!token.token) {
+          return { status: 401, data: { message: "Unauthorized" } };
+        }
+    
+        const response = await axios.post(`${backend}/api/investment/my-transactions`,data, {
+          headers: {
+            Authorization: `Bearer ${token.token}`, // Attach token in headers
+          },
+        });
+    
+        return response;
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        return { status: error.response?.status || 500, data: [] };
+      }
+}

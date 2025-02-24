@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom'
-import { removeAuthFromSessionStorage } from './utils/ls.util'
+import { getAuthFromSessionStorage, removeAuthFromSessionStorage } from './utils/ls.util'
 import { getTotalBusiness } from './helper/baseApiCalls'
 import { CgUserList } from 'react-icons/cg'
 import { BiSolidBank } from 'react-icons/bi'
@@ -10,6 +10,7 @@ import { BiSolidBank } from 'react-icons/bi'
 const AdminDashboard = () => {
     const [totalBusiness,setTotalBusiness] = useState(0)
     const navigate = useNavigate()
+    const auth = getAuthFromSessionStorage()
 
     const handleLogout = () => {
       // logout
@@ -34,6 +35,14 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         fetchTotals()
+
+        if(!auth){
+            navigate('/admin/login')
+        }
+
+        if(auth.user){
+            navigate('/admin/login')
+        }
     }, [])
 
   return (

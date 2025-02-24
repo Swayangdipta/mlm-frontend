@@ -34,9 +34,9 @@ const Profile = () => {
         <nav className="bg-blue-900 text-white flex flex-col items-center p-3 m-0 fixed top-14 w-full z-10">
           <div className="flex space-x-4 w-full justify-between">
             <Link to='/dashboard'><button className="font-semibold">Home</button></Link>
-            <button className="font-semibold">Capital</button>
+            <Link to='/capital' ><button className="font-semibold">Capital</button></Link>
             <button className="font-semibold">Bot</button>
-            <button className="font-semibold">Market</button>
+            <Link to="/invest" ><button className="font-semibold">Invest</button></Link>
             <Link to='/profile'><button className="font-semibold relative top-0 group">
               Profile  
             </button>
@@ -60,6 +60,14 @@ const Profile = () => {
                 <div className='w-full h-[50px] mt-[30px] px-4 group rounded border-amber-500 border bg-[#00000090] shadow-inner flex items-center justify-between'>
                     <CgUserList className='text-white text-[24px]' />
                     <h3 className='text-white text-[24px] group-hover:text-amber-400'>Team</h3>
+                    <CgArrowRight className='text-white text-[24px] cursor-pointer' />
+                </div>
+            </Link>
+
+            <Link to={`/transactions/${auth.user.id}`}>
+                <div className='w-full h-[50px] mt-[30px] px-4 group rounded border-amber-500 border bg-[#00000090] shadow-inner flex items-center justify-between'>
+                    <BsBank className='text-white text-[24px]' />
+                    <h3 className='text-white text-[24px] group-hover:text-amber-400'>Transactions</h3>
                     <CgArrowRight className='text-white text-[24px] cursor-pointer' />
                 </div>
             </Link>
