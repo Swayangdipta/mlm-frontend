@@ -52,15 +52,15 @@ function Login({isAdmin = false}) {
     }
   }, [])
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 bg-[url(https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1739903983~exp=1739907583~hmac=7c62f98f4fad32fa1696a265bf44e49bb3cc727a7072f9024bb9d3088c27f209&w=1380)] pb-10 pt-12">
-      <div className="bg-white p-8 rounded-md shadow-md w-[28rem]">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 bg-[url(https://png.pngtree.com/background/20210717/original/pngtree-sci-fi-city-light-dot-luminous-building-street-purple-technology-background-picture-image_1446716.jpg)] pb-10 pt-12">
+      <div className="bg-zinc-800 p-8 rounded-md shadow-md w-[28rem]">
         <div className="logo-section rounded-3xl flex justify-center">
-        <h1 className='text-[24px]'>Company.in</h1>
+        <h1 className='text-[24px] font-bold text-white'>Principal <span className="text-emerald-500">Grow</span></h1>
           {/* <img src={logo} alt="logo" className="w-40 h-20 bg-slate-100 rounded-3xl" /> */}
         </div>
         <br /><br />
-        <h2 className="text-2xl font-strong mb-2 mt-0 text-center">Sign In</h2>
-        <p className='flex justify-center'>Enter your Login ID and password to access account.</p>
+        <h2 className="text-2xl font-strong mb-2 mt-0 text-center text-white">Sign In</h2>
+        <p className='flex justify-center text-white'>Enter your Login ID and password to access account.</p>
 
         {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
 
@@ -107,10 +107,10 @@ function Login({isAdmin = false}) {
           </button>
 
           <div className='flex justify-evenly pt-3'>
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center text-emerald-400">
               <Link
                 to="/register"
-                className="text-black hover:underline font-normal mr-20">
+                className="hover:underline font-normal mr-20">
                 Join Here
               </Link>
             </div>

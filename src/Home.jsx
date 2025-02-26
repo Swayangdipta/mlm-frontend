@@ -33,17 +33,26 @@ function Home() {
       {/* Header Section */}
       <header className="flex justify-between items-center py-4 px-8 bg-blue-800">
         <div className="logo-section">
-          <h1 className='text-[18px] sm:text-[24px]'>Company.in</h1>
+        <h1 className='text-[24px] font-bold text-white'>Principal <span className="text-emerald-500">Grow</span></h1>
+
           {/* <img src={logo} alt="logo" className="w-40 h-16 bg-slate-100 rounded-3xl" /> */}
         </div>
 
 
         {/* Navigation Menu */}
         <nav className={`menu-option flex flex-wrap space-x-2 sm:space-x-4 md:flex md:space-x-6 ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300" onClick={handleHomeButtonClick}>Home</button>
-          <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Company</button>
-          <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Features</button>
-          <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Opportunities</button>
+          <a href="#home">
+            <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300"  >Home</button>
+          </a>
+          <a href="#company">
+            <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Company</button>
+          </a>
+          <a href="#features">
+            <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Features</button>
+          </a>
+          <a href="#opportunities">
+            <button className="border-4 rounded-3xl h-10 sm:h-12 w-20 sm:w-24 md:w-28 lg:w-32 hover:scale-110 hover:shadow-lg transition-all duration-300">Opportunities</button>
+          </a>
         </nav>
 
         {/* Sign In / Sign Up Buttons */}
@@ -61,7 +70,7 @@ function Home() {
         </div>
       </header>
 
-      <section
+      <section id='home'
       className="relative  h-screen flex flex-col items-center justify-center text-center py-16 px-4 text-white bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${sciFiBg3})` }}
     >
@@ -90,7 +99,7 @@ function Home() {
       </div>
     </section>
 
-      <section
+      <section id='company'
       className="relative py-32 text-white bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${sciFiBg})` }}
     >
@@ -100,7 +109,7 @@ function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-blue-400 uppercase">Project Overview</h2>
           </div>
           <p className="text-lg text-gray-300 font-medium mb-4">
-            Company.in is all about modern digital technologies, Web3, and the latest applications,
+            Principal Grow is all about modern digital technologies, Web3, and the latest applications,
             cultivating value exchange trends on a global scale.
           </p>
           <h3 className="text-xl md:text-2xl text-yellow-400 font-semibold mt-6">Strategic Vision</h3>
@@ -118,12 +127,12 @@ function Home() {
           <h3 className="text-xl md:text-2xl text-yellow-400 font-semibold mt-6">Company Origins</h3>
           <p className="text-gray-300">
             Founded in 2018 by a team of experienced traders, developers, and AI experts,
-            Company.in emerged from a passion for innovation and a commitment to excellence.
+            Principal Grow emerged from a passion for innovation and a commitment to excellence.
             We strive to leverage AI to make Forex trading more accessible, efficient, and profitable.
           </p>
           <h3 className="text-xl md:text-2xl text-yellow-400 font-semibold mt-6">AI-Powered Governance</h3>
           <p className="text-gray-300">
-            AI-powered Aiden Insight is guiding Company.in towards strategic growth and governance.
+            AI-powered Aiden Insight is guiding Principal Grow towards strategic growth and governance.
             Following the Q3 2024 board meeting, Aiden’s insights are shaping the company’s
             future with refined strategies and operational excellence.
           </p>
@@ -196,7 +205,7 @@ function Home() {
       </div>
     </section>
 
-    <section className="relative py-32 text-white bg-black bg-opacity-80">
+    <section id='features' className="relative py-32 text-white bg-black bg-opacity-80">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="max-w-5xl mx-auto bg-gray-900 bg-opacity-80 p-8 rounded-lg shadow-lg">
           <div className="text-center mb-6">
@@ -224,7 +233,7 @@ function Home() {
       </div>
     </section>
 
-    <section className="tp-blog-area pt-32 pb-20 text-white bg-gray-900">
+    <section id='opportunities' className="tp-blog-area pt-32 pb-20 text-white bg-gray-900">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="text-center mb-10">
           <span className="text-lg text-blue-400 font-semibold uppercase">Understanding Forex</span>
@@ -237,7 +246,7 @@ function Home() {
               <h3 className="text-xl font-semibold text-yellow-400 mb-2">{title}</h3>
               <p className="text-gray-300">
                 {index === 0 && "It is our Vision to bring some order and respectability to this industry by sharing our experiences and knowledge to make a success of Forex Trading."}
-                {index === 1 && "Company.in is committed to core values - Integrity, Customer Focused Culture, Trust, Respect and Care for the Individual, Passion for Excellence, Teamwork."}
+                {index === 1 && "Principal Grow is committed to core values - Integrity, Customer Focused Culture, Trust, Respect and Care for the Individual, Passion for Excellence, Teamwork."}
                 {index === 2 && "To provide innovative and responsive services for older people, which support Customer Focused Culture and help them have the best quality of life."}
               </p>
             </div>
@@ -248,7 +257,7 @@ function Home() {
 
     <footer className="tp-footer-area p-8 text-gray-400 text-center bg-gray-900 mt-1">
         <div className="container mx-auto px-6">
-          <p>© Company.in 2024-25 | All Rights Reserved</p>
+          <p>© Principal Grow 2024-25 | All Rights Reserved</p>
           <div className="mt-4">
             <a href="#" className="mr-4 hover:text-white">About us</a>
             <a href="#" className="mr-4 hover:text-white">Company</a>

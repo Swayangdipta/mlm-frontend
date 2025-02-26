@@ -59,8 +59,8 @@ function Register() {
     }, [auth])
 
   return (
-    <div className="flex justify-center items-center min-h-screen overflow-y-auto bg-[url(https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1739903983~exp=1739907583~hmac=7c62f98f4fad32fa1696a265bf44e49bb3cc727a7072f9024bb9d3088c27f209&w=1380)]">
-      <div className="bg-white pt-14 mt-12 mb-12 p-4 rounded-md shadow-lg w-full max-w-[28rem]">
+    <div className="flex justify-center items-center min-h-screen overflow-y-auto bg-center bg-cover bg-no-repeat bg-[url(https://png.pngtree.com/background/20210717/original/pngtree-sci-fi-city-light-dot-luminous-building-street-purple-technology-background-picture-image_1446716.jpg)]">
+      <div className="bg-zinc-800 pt-14 mt-12 mb-12 p-4 rounded-md shadow-lg w-full max-w-[28rem]">
         {/* Logo Section */}
         <div className="logo-section rounded-3xl flex justify-center mb-6">
           {/* <img
@@ -68,10 +68,10 @@ function Register() {
             alt="logo"
             className="w-40 h-20 bg-slate-100 rounded-3xl"
           /> */}
-          <h1 className='text-[24px]'>Company.in</h1>
+          <h1 className='text-[24px] font-bold text-white'>Principal <span className="text-emerald-500">Grow</span></h1>
         </div>
 
-        <h2 className="text-2xl font-bold mb-4  mt-10 text-center">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-4  mt-10 text-center text-white">Sign Up</h2>
 
         {/* Form Section */}
         <form onSubmit={handleSubmit}>
@@ -102,7 +102,7 @@ function Register() {
           </div>
           {/* Applicant Name */}
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <input
               type="text"
               id="name"
@@ -110,6 +110,20 @@ function Register() {
               className="w-full px-4 py-2 border border-gray-300 rounded-3xl"
               placeholder="Applicant Name"
               value={fullname}
+              onChange={handleChange}
+              required
+            />
+          </div> */}
+
+          {/* Email Address */}
+          <div className="mb-4">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full px-4 py-2 border border-gray-300 rounded-3xl"
+              placeholder="Email Address"
+              value={email}
               onChange={handleChange}
               required
             />
@@ -174,19 +188,7 @@ function Register() {
             />
             <button type="button" className="absolute right-3 top-3"></button>
           </div>
-          {/* Email Address */}
-          <div className="mb-4">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-3xl"
-              placeholder="Email Address"
-              value={email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+
           {/* OTP Section */}
           {/* <div className="mb-4">
             <div className="flex justify-between items-center">
@@ -215,7 +217,7 @@ function Register() {
               required
               onChange={() => setIsDisabled(!isDisabled)}
             />
-            <label htmlFor="terms" className="ml-2 text-base text-gray-700">
+            <label htmlFor="terms" className="ml-2 text-base text-gray-400">
               By clicking the button you have confirmed accept the International
               Holdding Terms & Conditions and Privacy Policy
             </label>
@@ -230,7 +232,7 @@ function Register() {
           </button>
 
           {/*Login Link*/}
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4 text-sky-500">
             <a href="/login">
               Login Here
             </a>
