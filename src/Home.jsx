@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from './assets/logo.png';
 import { MdPermIdentity } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
@@ -48,12 +48,16 @@ function Home() {
 
         {/* Sign In / Sign Up Buttons */}
         <div className="sign-buttons space-x-4 ml-4 flex items-center">
+          <Link to="/login">
           <button className="px-3 py-2 h-10 sm:h-12 w-24 sm:w-32 md:w-40 text-[12px] sm:text-lg font-semibold bg-orange-500 rounded-3xl hover:bg-orange-600 flex justify-center items-center" onClick={handleLoginButtonClick}>
             Sign In <MdPermIdentity className='ml-2 text-lg sm:text-2xl'/>
           </button>
+          </Link>
+          <Link to="/register">
           <button className="px-3 py-2 h-10 sm:h-12 w-24 sm:w-32 md:w-40 text-[12px] sm:text-lg font-semibold bg-orange-500 rounded-3xl hover:bg-orange-600 flex justify-center items-center" onClick={handleSignUpButtonClick}>
             Sign Up <MdLogout className='ml-2 text-lg'/>
           </button>
+          </Link>
         </div>
       </header>
 
@@ -70,16 +74,18 @@ function Home() {
         traders with intelligent, automated trading solutions that drive success.
       </p>
       <div className="log-button space-x-4 flex flex-row items-center justify-center w-full">
-        <button
+        <Link to="/login"><button
           className="px-6 py-3 bg-orange-500 h-12 w-24 sm:w-28 md:w-32 lg:w-36 rounded-3xl hover:bg-orange-600 flex justify-center items-center sm:mb-0 md:mb-0 text-lg sm:text-base font-semibold"
         >
           Login <span className="text-xl ml-2">+</span>
-        </button>
+        </button></Link>
+        <Link to="/register">
         <button
           className="px-6 py-3 bg-orange-500 h-12 w-32 sm:w-36 md:w-40 lg:w-44 rounded-3xl hover:bg-orange-600 flex justify-center items-center text-lg sm:text-base font-semibold"
         >
           Register <span className="text-xl ml-2">+</span>
         </button>
+        </Link>
       </div>
       </div>
     </section>
